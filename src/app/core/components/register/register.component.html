@@ -1,0 +1,66 @@
+<section class="main-section bg-register ">
+    <form [formGroup]="registerForm" (ngSubmit)="register()"
+        class="shadow layer rounded-xl p-8 w-lg mx-auto border-emerald-300 border-3 my-5">
+        <div class="mb-5">
+            <label for="uname" class="block mb-1 text-main font-semibold">Name</label>
+            <input type="text" id="uname" formControlName="name" placeholder="Ex: Michael"
+                class="per dirty w-full px-3 py-2 border  rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+            @if(registerForm.get('name')?.touched && registerForm.get('name')?.invalid)
+            {
+            <p class="text-red-950 bg-red-400 border-red-500 border-2 p-1 text-center rounded-2xl mt-1"> Please provide
+                a name from 3 to 6 characters max
+            </p>
+            }
+        </div>
+        <div class="mb-5">
+            <label for="password" class="block mb-1 text-main font-semibold">Password</label>
+            <input type="password" id="password" formControlName="password" placeholder="Enter Your Password Here"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+            @if(registerForm.get('password')?.touched && registerForm.get('password')?.invalid)
+            {
+            <p class="text-red-950 bg-red-400 border-red-500 border-2 p-1 text-center rounded-2xl mt-1"> Please provide
+                a password from 3 to 20 characters
+            </p>
+            }
+        </div>
+        <div class="mb-5">
+            <label for="rePassword" class="block mb-1 text-main font-semibold">RePassword</label>
+            <input type="password" id="rePassword" formControlName="rePassword"
+                placeholder="Enter The Same Password Here"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+            @if(registerForm.get('rePassword')?.touched && registerForm.getError('missMatch'))
+            {
+            <p class="text-red-950 bg-red-400 border-red-500 border-2 p-1 text-center rounded-2xl mt-1"> Passwords Don't
+                Match
+            </p>
+            }
+        </div>
+        <div class="mb-5">
+            <label for="email" class=" block mb-1 text-main font-semibold">Email</label>
+            <input type="email" id="email" formControlName="email" placeholder="Ex: test@provider.com"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+            @if(registerForm.get('email')?.touched && registerForm.get('email')?.invalid)
+            {
+            <p class="text-red-950 bg-red-400 border-red-500 border-2 p-1 text-center rounded-2xl mt-1"> Please provide
+                a valid email
+            </p>
+            }
+        </div>
+        <div class="mb-5">
+            <label for="phone" class="block mb-1 text-main font-semibold">Phone</label>
+            <input type="text" id="phone" formControlName="phone" placeholder="Ex: 0123456789"
+                class="w-full px-3 py-2 border rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+            @if(registerForm.get('phone')?.touched && registerForm.get('phone')?.invalid)
+            {
+            <p class="text-red-950 bg-red-400 border-red-500 border-2 p-1 text-center rounded-2xl mt-1"> Please provide
+                a valid
+                phone number
+            </p>
+            }
+        </div>
+        <button [disabled]="registerForm.invalid" class="btn-main w-full mt-2">Register</button>
+
+        <h5 class="text-center text-md my-3 text-white">Already have an account? <a class="text-blue-600 hover:underline"
+                routerLink="/login">Login</a></h5>
+    </form>
+</section>

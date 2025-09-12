@@ -1,0 +1,30 @@
+<div class="my-container py-4">
+    <div class="flex flex-wrap items-center">
+        <div class="w-full  md:w-1/2 lg:w-1/4">
+            <owl-carousel-o [options]="customOptions">
+
+                @for (img of productDetails.images; track $index) {
+                <ng-template carouselSlide>
+                    <img [src]="img" alt="" class="w-full block">
+                </ng-template>
+                }
+
+            </owl-carousel-o>
+        </div>
+        <div class="w-full md:w-1/2 lg:w-3/4">
+            <h1 class="text-center font-extrabold text-4xl my-2">{{productDetails.title}}</h1>
+            <p class="text-center font-medium text-2xl my-2">{{productDetails.description}}</p>
+            <div class="flex items-center justify-around">
+                <p>${{productDetails.price}}</p>
+                <div>
+                    {{productDetails.ratingsAverage}}
+                    <i class="fa fa-star rating-color"></i>
+                </div>
+            </div>
+            <div class="flex items-center justify-center">
+                <button class="w-2/3 bg-emerald-600 hover:bg-emerald-400 text-center text-white p-3 rounded-2xl">Add To
+                    Cart +</button>
+            </div>
+        </div>
+    </div>
+</div>

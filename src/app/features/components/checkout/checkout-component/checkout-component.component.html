@@ -1,0 +1,27 @@
+<section class="main-section">
+    <form [formGroup]="myForm" class="shadow layer rounded-xl p-8 w-lg mx-auto border-emerald-300 border-3 my-5"
+        (ngSubmit)="checkOut()">
+
+        <div class="mb-5">
+            <label for="details" class="block mb-1 text-main font-semibold">Details</label>
+            <input type="text" id="details" formControlName="details" placeholder="Details"
+                class="w-full px-3 py-2 border border-main-color rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+
+        </div>
+        <div class="mb-5">
+            <label class="block mb-1 text-main font-semibold">Phone</label>
+            <input type="tel" formControlName="phone" placeholder="phone"
+                class="w-full px-3 py-2 border border-main-color rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+
+        </div>
+        <div class="mb-5">
+            <label class="block mb-1 text-main font-semibold">City</label>
+            <input type="text" formControlName="city" placeholder="City"
+                class="w-full px-3 py-2 border border-main-color rounded focus:outline-none focus:border-green-600 bg-white text-gray-900" />
+
+        </div>
+
+        <button [disabled]="myForm.invalid" class="btn-main w-full">Checkout</button>
+
+    </form>
+</section>

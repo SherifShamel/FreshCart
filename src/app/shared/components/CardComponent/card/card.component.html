@@ -1,0 +1,19 @@
+<div class="outer p-3">
+    <div class="product p-2 cursor-pointer">
+        <div class="relative group">
+            <div (click)="addToCart(product()._id)"
+                class="p-3 flex justify-center absolute items-center bg-[var(--main-color)] rounded-l-full -right-15 group-hover:right-0 top-5">
+                <i class="fa fa-cart-shopping text-white"></i>
+            </div>
+            <div [routerLink]="['/p_details', product()._id]">
+                <img [src]="product().imageCover" class="w-full block rounded-md" [alt]="product().title">
+                <h1 class="text-emerald-400 font-extrabold line-clamp-1">Title: {{product().title}}</h1>
+                <h2 class="text-emerald-400 ">Price: {{product().price | currency:'GBP'}}
+                </h2>
+                <h3 class="text-emerald-400 ">Category: {{product().category.name}}</h3>
+            </div>
+
+        </div>
+
+    </div>
+</div>

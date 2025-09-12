@@ -1,0 +1,6 @@
+#my-image:hover {
+  transform: scale(110%) rotate(7deg);
+}
+#my-image {
+  transition: 0.3s;
+}

@@ -1,0 +1,7 @@
+/* Optional: add smooth scaling */
+.category-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.category-card:hover {
+  transform: scale(1.2);
+}

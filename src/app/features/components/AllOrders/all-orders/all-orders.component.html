@@ -1,0 +1,16 @@
+<div class="my-container">
+    <div class="my-3">
+        <h1 class="text-2xl text-main font-bold text-center">Your Previous Orders</h1>
+        <h2 class="text-xl text-main font-bold text-center">Total Orders: {{userOrders.length}}</h2>
+    </div>
+    @for (order of userOrders; track order._id) {
+    <div class="border-2 border-r-emerald-700">
+        <h1>Order {{order.id}}, ordered at {{order.createdAt | date :'short'}}</h1>
+        @for (cartItem of userOrders[$index].cartItems; track $index) {
+        <h2>
+            {{cartItem.product.title}}
+        </h2>
+        }
+    </div>
+    }
+</div>
