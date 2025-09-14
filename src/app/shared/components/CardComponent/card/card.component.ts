@@ -16,12 +16,14 @@ export class CardComponent {
   private readonly _ToastrService = inject(ToastrService);
 
   product: InputSignal<IProduct> = input({} as IProduct);
-  
-  
+
   addToCart(p_id: string) {
     this._CartServiceService.addProductToCart(p_id).subscribe({
       next: (res) => {
         console.log(res);
+        this._CartServiceService.count = res.numOfCartItems;
+        console.log(this._CartServiceService.count);
+
         this._ToastrService.success(res.message, res.status);
       },
     });

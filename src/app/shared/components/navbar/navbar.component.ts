@@ -6,11 +6,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { FlowbiteService } from '../../../core/services/flowbite.service';
 import { CartServiceService } from '../../services/Cart/cart-service.service';
 import { FormsModule } from '@angular/forms';
-import { Show } from '../../directives/show';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, FormsModule, Show],
+  imports: [RouterLink, RouterLinkActive, FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -25,6 +24,7 @@ export class NavbarComponent {
 
   check: InputSignal<boolean> = input(false);
   userame: InputSignal<string> = input('');
+  // badgeNumber: string = this._CartServiceService.numberOfCartItems;
   badgeNumber: InputSignal<number> = input(0);
 
   signOut(): void {
@@ -37,13 +37,5 @@ export class NavbarComponent {
     this._FlowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });
-    // if (this._CookieService.get('token')) {
-    //   this._CartServiceService.getLoggeduserCart().subscribe({
-    //     next: (res) => {
-    //       this.badgeNumber = res.numOfCartItems;
-    //       console.log(res);
-    //     },
-    //   });
-    // }
   }
 }

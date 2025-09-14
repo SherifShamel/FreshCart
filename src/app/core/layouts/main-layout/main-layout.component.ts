@@ -15,8 +15,8 @@ export class MainLayoutComponent implements OnInit {
   private readonly _CartServiceService = inject(CartServiceService);
 
   username: string = '';
-  numOfCartItems!: number;
-  
+  badgeNumber: number = this._CartServiceService.count;
+
   ngOnInit(): void {
     this._AuthServiceService.decodeToken();
     this.username = this._AuthServiceService.userInfo.name;
@@ -24,7 +24,8 @@ export class MainLayoutComponent implements OnInit {
 
     this._CartServiceService.getLoggeduserCart().subscribe({
       next: (res) => {
-        this.numOfCartItems = res.numOfCartItems;
+        this.badgeNumber = res.numOfCartItems;
+        console.log(' from main ==============>' + this.badgeNumber);
       },
     });
   }

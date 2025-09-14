@@ -12,6 +12,7 @@ import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.comp
 import { authGuardGuard } from './core/guards/auth-guard-guard';
 import { CheckoutComponentComponent } from './features/components/checkout/checkout-component/checkout-component.component';
 import { AllOrdersComponent } from './features/components/AllOrders/all-orders/all-orders.component';
+import { WishlistComponent } from './features/Wishlist/wishlist/wishlist.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,6 +36,7 @@ export const routes: Routes = [
       { path: 'categories', component: CategoriesComponent, title: 'Categories' },
       { path: 'cart', component: CartComponent, title: 'Cart' },
       { path: 'products', component: ProductsComponent, title: 'Products' },
+      { path: 'wishlist', component: WishlistComponent, title: 'Wishlist' },
       {
         path: 'p_details/:p_id',
         loadComponent: () =>
