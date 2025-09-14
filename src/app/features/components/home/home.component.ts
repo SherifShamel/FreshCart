@@ -11,7 +11,7 @@ import { CardComponent } from "../../../shared/components/CardComponent/card/car
 
 @Component({
   selector: 'app-home',
-  imports: [CategoriesSliderComponent, MainSliderComponent, RouterLink, CurrencyPipe, CardComponent],
+  imports: [CategoriesSliderComponent, MainSliderComponent, CardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

@@ -3,6 +3,8 @@ import { ProductsService } from '../../../shared/services/Products/products.serv
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../../core/interfaces/iproduct.interface';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { CartServiceService } from '../../../shared/services/Cart/cart-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-p-details',
@@ -13,6 +15,8 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 export class PDetailsComponent implements OnInit {
   private readonly _ActivatedRoute = inject(ActivatedRoute);
   private readonly _ProductsService = inject(ProductsService);
+  private readonly _CartServiceService = inject(CartServiceService);
+  private readonly _ToastrService = inject(ToastrService);
 
   productId!: string;
   productDetails: IProduct = {} as IProduct;
@@ -23,13 +27,24 @@ export class PDetailsComponent implements OnInit {
         this.productId = params.get('p_id')!;
       },
     });
-
     this._ProductsService.getSpecificProduct(this.productId).subscribe({
       next: (res) => {
         this.productDetails = res.data;
       },
       error: (err) => {
         alert(err);
+      },
+    });
+  }
+
+  addToCart(p_id: string) {
+    this._CartServiceService.addProductToCart(p_id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this._CartServiceService.count = res.numOfCartItems;
+        console.log(this._CartServiceService.count);
+
+        this._ToastrService.success(res.message, res.status);
       },
     });
   }
