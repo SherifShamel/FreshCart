@@ -24,7 +24,6 @@ export class CardComponent {
   addToCart(p_id: string) {
     this._CartServiceService.addProductToCart(p_id).subscribe({
       next: (res) => {
-        console.log(res);
         this._CartServiceService.cartCount.set(res.numOfCartItems);
         this._ToastrService.success(res.message, res.status);
       },
@@ -37,15 +36,12 @@ export class CardComponent {
         // if id == res.data[item]
         for (const item of res.data) {
           if (p_id == item) {
-            console.log('already there');
             this.flagged = true;
             break;
           } else {
-            console.log('No No No');
           }
         }
         this._ToastrService.success(res.message, res.status);
-        console.log(res);
       },
     });
   }

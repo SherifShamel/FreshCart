@@ -20,7 +20,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this._CartServiceService.getLoggeduserCart().subscribe({
       next: (res) => {
-        console.log(res.data);
         this.totalCartPrice = res.data.totalCartPrice;
         this.cartItems = res.data;
       },
@@ -33,7 +32,6 @@ export class CartComponent implements OnInit {
         this.cartItems = res.data;
         this._CartServiceService.cartCount = res.data.length;
         this.totalCartPrice = this.cartItems.totalCartPrice;
-        console.log(res);
       },
     });
   }
@@ -44,7 +42,6 @@ export class CartComponent implements OnInit {
         this.cartItems = res.data;
         this._CartServiceService.cartCount.set(res.numOfCartItems);
         this.totalCartPrice = this.cartItems.totalCartPrice;
-        console.log(res);
         this._ToastrService.info(res.message, res.status);
       },
     });

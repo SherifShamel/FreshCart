@@ -19,7 +19,6 @@ export class MainLayoutComponent implements OnInit {
   ngOnInit(): void {
     this._AuthServiceService.decodeToken();
     this.username = this._AuthServiceService.userInfo.name;
-    console.log(this.username);
 
     this._CartServiceService.getLoggeduserCart().subscribe({
       next: (res) => {

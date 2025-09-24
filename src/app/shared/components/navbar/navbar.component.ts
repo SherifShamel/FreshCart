@@ -23,7 +23,7 @@ export class NavbarComponent {
   private readonly _CartServiceService = inject(CartServiceService);
 
   check: InputSignal<boolean> = input(false);
-  
+
   userame: InputSignal<string> = input('');
 
   cartCount!: WritableSignal<number>;

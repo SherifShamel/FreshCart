@@ -23,7 +23,6 @@ export class WishlistComponent implements OnInit {
     this._WishlistService.getLoggedUserWishlist().subscribe({
       next: (res) => {
         this.wishProduct = res.data;
-        console.log(res);
       },
       error: (err) => {
         console.log(err);
@@ -34,12 +33,10 @@ export class WishlistComponent implements OnInit {
   removeProduct(p_id: string) {
     this._WishlistService.removeProductFromWishList(p_id).subscribe({
       next: (res) => {
-        console.log(res);
         this.getWishedProducts();
         this._ToastrService.success(res.message, res.status);
       },
       error: (err) => {
-        console.log(err);
         this._ToastrService.error(err.message, err.status);
       },
     });
