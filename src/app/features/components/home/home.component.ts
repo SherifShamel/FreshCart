@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 import { CartServiceService } from '../../../shared/services/Cart/cart-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { CurrencyPipe } from '@angular/common';
-import { CardComponent } from "../../../shared/components/CardComponent/card/card.component";
+import { CardComponent } from '../../../shared/components/CardComponent/card/card.component';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +18,13 @@ import { CardComponent } from "../../../shared/components/CardComponent/card/car
 export class HomeComponent implements OnInit {
   constructor(
     private _ProductsService: ProductsService,
-    private _CartServiceService: CartServiceService,
-    private _ToastrService: ToastrService
+    private _CartServiceService: CartServiceService
   ) {}
   products: IProduct[] = [];
 
   ngOnInit(): void {
     this.getAllProducts();
+    this.getCartCount();
   }
 
   getAllProducts(pageNumber: number = 1): void {
@@ -36,5 +36,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  showSuccess() {}
+  getCartCount() {
+    this._CartServiceService.getLoggeduserCart().subscribe({
+      next: (res) => {
+        this._CartServiceService.cartCount.set(res.numOfCartItems);
+      },
+    });
+  }
 }

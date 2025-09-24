@@ -2,12 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { OrdersServiceService } from '../../../../shared/services/Orders/orders-service.service';
 import { AuthServiceService } from '../../../../shared/services/Auth/auth-service.service';
 import { IOrders } from '../../../../core/interfaces/iorders.interface';
-import { ICartInterface } from '../../../../core/interfaces/icart-interface.interface';
-import { DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-all-orders',
-  imports: [DatePipe],
+  imports: [DatePipe,RouterLink,CurrencyPipe],
   templateUrl: './all-orders.component.html',
   styleUrl: './all-orders.component.css',
 })

@@ -23,9 +23,10 @@ export class NavbarComponent {
   private readonly _CartServiceService = inject(CartServiceService);
 
   check: InputSignal<boolean> = input(false);
+  
   userame: InputSignal<string> = input('');
-  // badgeNumber: string = this._CartServiceService.numberOfCartItems;
-  badgeNumber: InputSignal<number> = input(0);
+
+  cartCount!: WritableSignal<number>;
 
   signOut(): void {
     this._Router.navigate(['/login']);
@@ -34,6 +35,7 @@ export class NavbarComponent {
   }
 
   ngOnInit(): void {
+    this.cartCount = this._CartServiceService.cartCount;
     this._FlowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });

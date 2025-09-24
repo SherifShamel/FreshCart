@@ -12,7 +12,8 @@ import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.comp
 import { authGuardGuard } from './core/guards/auth-guard-guard';
 import { CheckoutComponentComponent } from './features/components/checkout/checkout-component/checkout-component.component';
 import { AllOrdersComponent } from './features/components/AllOrders/all-orders/all-orders.component';
-import { WishlistComponent } from './features/Wishlist/wishlist/wishlist.component';
+import { WishlistComponent } from './features/components/wishlist/wishlist.component';
+import { ForgetPasswordComponent } from './features/components/forgetPassword/forget-password/forget-password.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ export const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent, title: 'Login' },
       { path: 'register', component: RegisterComponent, title: 'Register' },
+      { path: 'forget-password', component: ForgetPasswordComponent, title: 'Forget Password' },
     ],
   },
   {

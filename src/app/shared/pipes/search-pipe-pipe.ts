@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IProduct } from '../../core/interfaces/iproduct.interface';
 
 @Pipe({
   name: 'searchPipe',

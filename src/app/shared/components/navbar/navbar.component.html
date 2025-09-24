@@ -1,8 +1,18 @@
-<nav class="border-gray-200 bg-gray-300 sticky start-10 top-14 end-10 ">
+<nav class="border-gray-200 bg-gray-300 sticky start-10 top-10 end-10 ">
     <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./images/freshcart-logo.svg" alt="">
         </a>
+        @if(check()){
+        <ul class="block lg:hidden font-medium md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li class="p-2 relative">
+                <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
+                    aria-current="page" routerLink="/cart"><i class="fa fa-cart-shopping"></i></a>
+                <span
+                    class="absolute translate-x-1/2 md:translate-0 md:start-0 top-0 text-center">{{cartCount()}}</span>
+            </li>
+        </ul>
+        }
         <button data-collapse-toggle="navbar-default" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
             aria-controls="navbar-default" aria-expanded="false">
@@ -23,11 +33,16 @@
                 </li>
                 <li class="p-2">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
-                        aria-current="page" routerLink="/categories" routerLinkActive="scale-120">Categories</a>
+                        aria-current="page" routerLink="/categories"  routerLinkActive="scale-120">Categories</a>
                 </li>
                 <li class="p-2 relative">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
                         aria-current="page" routerLinkActive="scale-120" routerLink="/cart">Cart</a>
+                    <!--  -->
+                </li>
+                <li class="p-2 relative">
+                    <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
+                        aria-current="page" routerLinkActive="scale-120" routerLink="/wishlist">Wishlist</a>
                     <!--  -->
                 </li>
                 <li class="p-2">
@@ -61,6 +76,20 @@
             </ul>
 
             <ul
+                class="ms-auto font-medium flex items-center md-flex-col flex-row p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row  md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0">
+                @if(check()){
+                <li class="p-2 relative">
+                    <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
+                        aria-current="page" routerLink="/cart"><i class="fa fa-cart-shopping"></i></a>
+                    <span
+                        class="absolute translate-x-1/2 md:translate-0 md:start-0 top-0 text-center">{{cartCount()}}</span>
+                </li>
+                <li class="p-2">
+                    <h6 class="text-black">Hello,{{userame()}}</h6>
+                </li>
+                }
+            </ul>
+            <ul
                 class="ms-auto font-medium flex md-flex-col flex-row p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:justify-between md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0">
                 <li class="p-2">
                     <a class="text-emerald-800 hover:text-emerald-500 duration-500"><i class="fab fa-facebook"></i></a>
@@ -77,16 +106,7 @@
                 <li class="p-2">
                     <a class="text-emerald-800 hover:text-emerald-500 duration-500"><i class="fab fa-linkedin"></i></a>
                 </li>
-                @if(check()){
-                <li class="p-2 relative">
-                    <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
-                        aria-current="page" routerLink="/cart"><i class="fa fa-cart-shopping"></i></a>
-                    <span class="absolute start-0 top-0 text-center">{{badgeNumber()}}</span>
-                </li>
-                <li class="p-2">
-                    <h6 class="text-black">Hello,{{userame()}}</h6>
-                </li>
-                }
+
             </ul>
         </div>
 

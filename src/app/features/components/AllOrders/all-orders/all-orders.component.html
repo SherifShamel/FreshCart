@@ -1,16 +1,29 @@
 <div class="my-container">
     <div class="my-3">
         <h1 class="text-2xl text-main font-bold text-center">Your Previous Orders</h1>
-        <h2 class="text-xl text-main font-bold text-center">Total Orders: {{userOrders.length}}</h2>
     </div>
     @for (order of userOrders; track order._id) {
-    <div class="border-2 border-r-emerald-700">
-        <h1>Order {{order.id}}, ordered at {{order.createdAt | date :'short'}}</h1>
+    <div class=" border-r-emerald-700">
         @for (cartItem of userOrders[$index].cartItems; track $index) {
-        <h2>
-            {{cartItem.product.title}}
-        </h2>
+        <div class="product p-2 cursor-pointer">
+            <div class="relative group">
+                <div class="flex items-center" [routerLink]="['/p_details', cartItem.product.id]">
+                    <div class="w-1/4">
+                        <img [src]="cartItem.product.imageCover" class="w-full block rounded-md"
+                            [alt]="cartItem.product.title">
+                    </div>
+                    <div class="w-3/4 text-center">
+                        <h1 class="text-emerald-400 font-extrabold line-clamp-1">Title: {{cartItem.product.title}}</h1>
+                        <h2 class="text-emerald-400 ">Price: {{cartItem.price| currency:'GBP'}}
+                        </h2>
+                        <h3 class="text-emerald-400 ">Category: {{cartItem.product.category.name}}</h3>
+                    </div>
+                </div>
+                <h4>Order {{order.id}}, ordered at {{order.createdAt | date :'short'}}</h4>
+            </div>
+        </div>
         }
     </div>
     }
+    <h2 class="text-xl text-main font-bold text-center my-4">Total Orders: {{userOrders.length}}</h2>
 </div>

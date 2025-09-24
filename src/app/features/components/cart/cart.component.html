@@ -1,37 +1,49 @@
 <section class="main-section">
     <div class="my-container">
         <h1 class="text-center text-2xl font-black text-[var(--main-color)]">Your Cart</h1>
-        <h2 class="font-medium text-[var(--main-color)] ">Total Cart Price: {{cartItems.totalCartPrice}}</h2>
+        <h2 class="font-medium text-[var(--main-color)] ">Total Cart Price: {{totalCartPrice}}</h2>
 
+        <div class="flex flex-col flex-wrap justify-center items-center min-h-60">
+            @if( cartItems.products.length == 0){
 
-        @for (item of cartItems.products; track item.product._id) {
-        <div class="flex flex-wrap justify-between items-center shadow-lg">
-            <div class="w-full md:w-1/6 my-2">
-                <img [src]="item.product.imageCover" class="w-full block" [alt]="item.product.title">
-            </div>
-            <div class="w-full md:w-2/4 my-2">
-                <h3>Title: {{item.product.title}}</h3>
-                <h4>Price:{{item.price}}</h4>
-                <h5 class="cursor-pointer text-red-500 mt-3 p-0 hover:p-2 w-fit" (click)="removeItem(item.product._id)">
-                    Remove From Cart <i class="fa fa-trash-can"></i></h5>
-
-            </div>
-            <div class="w-full md:w-1/12 my-2">
-                <div class="flex flex-wrap justify-evenly lg:justify-between items-center">
-                    @if(item.count>1){
-                    <i class="fa fa-minus-circle cursor-pointer text-[var(--main-color)]"
-                        (click)="changeCount(item.product._id,item.count-1)"></i>
-                    }
-                    <p>{{item.count}}</p>
-                    <i class="fa fa-plus-circle cursor-pointer text-[var(--main-color)]"
-                        (click)="changeCount(item.product._id,item.count+1)"></i>
+            <h2 class="text-2xl text-center cursor-pointer hover:text-emerald-400 duration-75 underline"
+                [routerLink]="['/products']">
+                Start
+                Shopping!</h2>
+            }
+            @for (item of cartItems.products; track item.product._id) {
+            <div class="flex flex-wrap justify-between items-center shadow-lg">
+                <div class="w-full md:w-1/6 my-2">
+                    <img [src]="item.product.imageCover" class="w-full block" [alt]="item.product.title">
+                </div>
+                <div class="w-full md:w-2/4 my-2">
+                    <h3>Title: {{item.product.title}}</h3>
+                    <h4>Price:{{item.price}}</h4>
+                    <h5 class="cursor-pointer text-red-500 mt-3 p-0 hover:p-2 w-fit"
+                        (click)="removeItem(item.product._id)">
+                        Remove From Cart <i class="fa fa-trash-can"></i></h5>
+                    <h6 class="cursor-pointer mt-3 p-3 bg-emerald-300 w-max rounded-2xl hover:scale-110"
+                        [routerLink]="['/p_details', item.product._id]">&lt; Check Product</h6>
+                </div>
+                <div class="w-full md:w-1/12 my-2">
+                    <div class="flex flex-wrap justify-evenly lg:justify-between items-center">
+                        @if(item.count>1){
+                        <i class="fa fa-minus-circle cursor-pointer text-[var(--main-color)]"
+                            (click)="changeCount(item.product._id,item.count-1)"></i>
+                        }
+                        <p>{{item.count}}</p>
+                        <i class="fa fa-plus-circle cursor-pointer text-[var(--main-color)]"
+                            (click)="changeCount(item.product._id,item.count+1)"></i>
+                    </div>
                 </div>
             </div>
-        </div>
-        }
+            }
 
-        @if(cartItems.products.length>0){
-        <button class="btn-main" [routerLink]="['/checkout',cartItems._id]">Checkout</button>
-        }
+            @if(totalCartPrice>0){
+            <div class="p-3 mt-2">
+                <button class="btn-main mx-auto block" [routerLink]="['/checkout',cartItems._id]">Checkout</button>
+            </div>
+            }
+        </div>
     </div>
 </section>

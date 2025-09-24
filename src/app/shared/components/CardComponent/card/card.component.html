@@ -1,9 +1,13 @@
 <div class="outer p-3">
-    <div class="product p-2 cursor-pointer">
-        <div class="relative group">
+    <div class="product p-2 cursor-pointer animate__animated animate__fadeInLeft transition-all">
+        <div class="relative group ">
             <div (click)="addToCart(product()._id)"
                 class="p-3 flex justify-center absolute items-center bg-[var(--main-color)] rounded-l-full -right-15 group-hover:right-0 top-5">
                 <i class="fa fa-cart-shopping text-white"></i>
+            </div>
+            <div (click)="addToWishList(product()._id)"
+                class="p-3 flex absolute bg-[var(--main-color)] rounded-r-full -left-15 group-hover:left-0 top-5">
+                <i class="fa fa-star text-white" [style.color]="flagged?'black':''"></i>
             </div>
             <div [routerLink]="['/p_details', product()._id]">
                 <img [src]="product().imageCover" class="w-full block rounded-md" [alt]="product().title">
@@ -12,8 +16,6 @@
                 </h2>
                 <h3 class="text-emerald-400 ">Category: {{product().category.name}}</h3>
             </div>
-
         </div>
-
     </div>
 </div>

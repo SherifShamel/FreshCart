@@ -41,8 +41,8 @@ export class PDetailsComponent implements OnInit {
     this._CartServiceService.addProductToCart(p_id).subscribe({
       next: (res) => {
         console.log(res);
-        this._CartServiceService.count = res.numOfCartItems;
-        console.log(this._CartServiceService.count);
+        this._CartServiceService.cartCount.set(res.numOfCartItems);
+        console.log(this._CartServiceService.cartCount);
 
         this._ToastrService.success(res.message, res.status);
       },

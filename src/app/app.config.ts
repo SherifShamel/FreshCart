@@ -14,16 +14,18 @@ import { CookieService } from 'ngx-cookie-service';
 import { provideToastr } from 'ngx-toastr';
 import { headerInterceptor } from './core/interceptors/Header/header-interceptor';
 import { errorInterceptor } from './core/interceptors/Error/error-interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { loadingInterceptor } from './core/interceptors/Loading/loading-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withViewTransitions(), withInMemoryScrolling()),
-    provideHttpClient(withFetch(), withInterceptors([headerInterceptor, errorInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([headerInterceptor, errorInterceptor, loadingInterceptor])),
     provideClientHydration(withEventReplay()),
     provideAnimations(),
-    importProvidersFrom(CookieService),
+    importProvidersFrom(CookieService, NgxSpinnerModule),
     provideToastr(),
   ],
 };

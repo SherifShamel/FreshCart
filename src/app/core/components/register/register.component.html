@@ -1,6 +1,6 @@
 <section class="main-section bg-register ">
     <form [formGroup]="registerForm" (ngSubmit)="register()"
-        class="shadow layer rounded-xl p-8 w-lg mx-auto border-emerald-300 border-3 my-5">
+        class="shadow layer w-full rounded-xl p-8 md:w-lg mx-auto border-emerald-300 border-3 my-5">
         <div class="mb-5">
             <label for="uname" class="block mb-1 text-main font-semibold">Name</label>
             <input type="text" id="uname" formControlName="name" placeholder="Ex: Michael"
@@ -60,7 +60,7 @@
         </div>
         <button [disabled]="registerForm.invalid" class="btn-main w-full mt-2">Register</button>
 
-        <h5 class="text-center text-md my-3 text-white">Already have an account? <a class="text-blue-600 hover:underline"
+        <h5 class="text-center text-md my-3 text-white">Already have an account? <a class="text-blue-950 hover:underline"
                 routerLink="/login">Login</a></h5>
     </form>
 </section>

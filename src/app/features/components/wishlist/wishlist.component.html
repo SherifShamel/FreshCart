@@ -1,0 +1,27 @@
+<section class="main-section">
+    <div class="my-container">
+        <h1 class="text-center text-2xl font-black text-[var(--main-color)]">Your Wishlist</h1>
+
+        <div class="w-3/4 mx-auto">
+            @for (item of wishProduct; track item._id) {
+            <div class=" flex flex-wrap justify-between items-center shadow-lg">
+                <div [routerLink]="['/p_details', item._id]" class="p-4 cursor-pointer">
+                    <div class="w-full md:w-1/6 my-2">
+                        <img [src]="item.imageCover" class="w-full block" [alt]="item.title">
+                    </div>
+                    <div class="w-full md:w-2/4 my-2">
+                        <h3>Title: {{item.title}}</h3>
+                        <h4>Price:{{item.price}}</h4>
+                    </div>
+                </div>
+                <!-- to do this button -->
+                <div class="hover:p-3">
+                    <h5 class="cursor-pointer text-red-500 mx-3" (click)="removeProduct(item._id)">
+                        Remove From Wishlist <i class="fa fa-trash-can"></i></h5>
+                </div>
+            </div>
+            }
+        </div>
+
+    </div>
+</section>

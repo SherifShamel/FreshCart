@@ -10,7 +10,7 @@ import { environment } from '../../../../environments/environment.development';
 export class CartServiceService {
   private readonly _HttpClient = inject(HttpClient);
 
-  count!: number;
+  cartCount: WritableSignal<number> = signal(0);
 
   getLoggeduserCart(): Observable<any> {
     return this._HttpClient.get(`${environment.baseUrl}/api/v1/cart`);

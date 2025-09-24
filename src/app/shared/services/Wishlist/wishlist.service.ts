@@ -17,4 +17,24 @@ export class WishlistService {
       headers: { token: this._CookieService.get('token') },
     });
   }
+
+  addProductToWishlist(p_id: string): Observable<any> {
+    return this._HttpClient.post(
+      `${environment.baseUrl}/api/v1/wishlist`,
+      { productId: p_id },
+      {
+        headers: {
+          token: this._CookieService.get('token'),
+        },
+      }
+    );
+  }
+
+  removeProductFromWishList(p_id: string): Observable<any> {
+    return this._HttpClient.delete(`${environment.baseUrl}/api/v1/wishlist/${p_id}`, {
+      headers: {
+        token: this._CookieService.get('token'),
+      },
+    });
+  }
 }

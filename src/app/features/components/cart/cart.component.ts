@@ -13,13 +13,15 @@ import { RouterLink } from '@angular/router';
 export class CartComponent implements OnInit {
   private readonly _CartServiceService = inject(CartServiceService);
   private readonly _ToastrService = inject(ToastrService);
-  
-  cartItems!: ICartInterface;
+
+  cartItems: ICartInterface = {} as ICartInterface;
+  totalCartPrice: number = 0;
 
   ngOnInit(): void {
     this._CartServiceService.getLoggeduserCart().subscribe({
       next: (res) => {
         console.log(res.data);
+        this.totalCartPrice = res.data.totalCartPrice;
         this.cartItems = res.data;
       },
     });
@@ -29,6 +31,8 @@ export class CartComponent implements OnInit {
     this._CartServiceService.updateCartProductQuantity(p_id, count).subscribe({
       next: (res) => {
         this.cartItems = res.data;
+        this._CartServiceService.cartCount = res.data.length;
+        this.totalCartPrice = this.cartItems.totalCartPrice;
         console.log(res);
       },
     });
@@ -38,6 +42,8 @@ export class CartComponent implements OnInit {
     this._CartServiceService.removeSpeceficCartItem(p_id).subscribe({
       next: (res) => {
         this.cartItems = res.data;
+        this._CartServiceService.cartCount.set(res.numOfCartItems);
+        this.totalCartPrice = this.cartItems.totalCartPrice;
         console.log(res);
         this._ToastrService.info(res.message, res.status);
       },

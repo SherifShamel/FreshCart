@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../../../shared/services/Categories/categories.service';
 import { ICategories } from '../../../core/interfaces/icategories.interface';
 import { FormsModule } from '@angular/forms';
-import { SearchPipePipe } from '../../../shared/pipes/search-pipe-pipe';
 
 @Component({
   selector: 'app-categories',
-  imports: [FormsModule,SearchPipePipe],
+  imports: [FormsModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
