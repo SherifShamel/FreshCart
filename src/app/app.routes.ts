@@ -10,7 +10,6 @@ import { ProductsComponent } from './features/components/products/products.compo
 import { NotfoundComponent } from './features/components/notfound/notfound.component';
 import { MainLayoutComponent } from './core/layouts/main-layout/main-layout.component';
 import { authGuardGuard } from './core/guards/auth-guard-guard';
-import { CheckoutComponentComponent } from './features/components/checkout/checkout-component/checkout-component.component';
 import { AllOrdersComponent } from './features/components/AllOrders/all-orders/all-orders.component';
 import { WishlistComponent } from './features/components/wishlist/wishlist.component';
 import { ForgetPasswordComponent } from './features/components/forgetPassword/forget-password/forget-password.component';
@@ -33,7 +32,10 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent, title: 'Home' },
       { path: 'brands', component: BrandsComponent, title: 'Brands' },
-      { path: 'checkout/:c_id', component: CheckoutComponentComponent, title: 'Checkout' },
+      { path: 'checkout/:c_id', loadComponent: () =>
+          import('./features/components/checkout/checkout-component/checkout-component.component').then(
+            (c) => c.CheckoutComponentComponent
+          ), title: 'Checkout' },
       { path: 'allorders', component: AllOrdersComponent, title: 'All Orders' },
       { path: 'categories', component: CategoriesComponent, title: 'Categories' },
       { path: 'cart', component: CartComponent, title: 'Cart' },
