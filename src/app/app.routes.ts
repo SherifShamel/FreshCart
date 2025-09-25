@@ -13,6 +13,7 @@ import { authGuardGuard } from './core/guards/auth-guard-guard';
 import { AllOrdersComponent } from './features/components/AllOrders/all-orders/all-orders.component';
 import { WishlistComponent } from './features/components/wishlist/wishlist.component';
 import { ForgetPasswordComponent } from './features/components/forgetPassword/forget-password/forget-password.component';
+import { RenderMode } from '@angular/ssr';
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
@@ -37,6 +38,7 @@ export const routes: Routes = [
           import(
             './features/components/checkout/checkout-component/checkout-component.component'
           ).then((c) => c.CheckoutComponentComponent),
+
         title: 'Checkout',
       },
       { path: 'allorders', component: AllOrdersComponent, title: 'All Orders' },
