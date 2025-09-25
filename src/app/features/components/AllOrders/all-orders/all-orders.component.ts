@@ -21,7 +21,7 @@ export class AllOrdersComponent implements OnInit {
     this._AuthServiceService.decodeToken();
     this._OrdersServiceService.getUserOrders(this._AuthServiceService.userInfo.id).subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.userOrders = res;
       },
     });

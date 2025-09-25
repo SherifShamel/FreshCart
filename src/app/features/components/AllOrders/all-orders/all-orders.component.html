@@ -2,26 +2,34 @@
     <div class="my-3">
         <h1 class="text-2xl text-main font-bold text-center">Your Previous Orders</h1>
     </div>
+
+
     @for (order of userOrders; track order._id) {
     <div class=" border-r-emerald-700">
         @for (cartItem of userOrders[$index].cartItems; track $index) {
-        <div class="product p-2 cursor-pointer">
-            <div class="relative group">
-                <div class="flex items-center" [routerLink]="['/p_details', cartItem.product.id]">
-                    <div class="w-1/4">
-                        <img [src]="cartItem.product.imageCover" class="w-full block rounded-md"
-                            [alt]="cartItem.product.title">
-                    </div>
-                    <div class="w-3/4 text-center">
-                        <h1 class="text-emerald-400 font-extrabold line-clamp-1">Title: {{cartItem.product.title}}</h1>
-                        <h2 class="text-emerald-400 ">Price: {{cartItem.price| currency:'GBP'}}
-                        </h2>
-                        <h3 class="text-emerald-400 ">Category: {{cartItem.product.category.name}}</h3>
-                    </div>
-                </div>
-                <h4>Order {{order.id}}, ordered at {{order.createdAt | date :'short'}}</h4>
+        <article class="flex flex-col md:flex-row my-3 overflow-hidden rounded-lg shadow-sm transition hover:shadow-lg"
+            [routerLink]="['/p_details', cartItem.product.id]">
+            <div class="w-1/3">
+                <img [alt]="cartItem.product.title" [src]="cartItem.product.imageCover"
+                    class="h-56 w-full object-contain" />
             </div>
-        </div>
+
+            <div class="bg-white p-4 sm:p-6 w-2/3">
+                <time datetime="2022-10-10" class="block text-xs text-gray-500"> {{order.createdAt | date :'short'}}
+                </time>
+
+                <a href="#">
+                    <h3 class="mt-0.5 text-lg text-gray-900">Title: {{cartItem.product.title}}</h3>
+                </a>
+
+                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                    Price: {{cartItem.price| currency:'GBP'}}
+                </p>
+                <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+                    Category: {{cartItem.product.category.name}}
+                </p>
+            </div>
+        </article>
         }
     </div>
     }
