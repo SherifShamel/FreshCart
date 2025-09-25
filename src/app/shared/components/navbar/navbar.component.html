@@ -1,4 +1,4 @@
-<nav class="border-gray-200 bg-gray-300 sticky start-10 top-10 end-10 ">
+<nav class="border-gray-200 bg-gray-300 sticky start-10 top-10 end-10 dark:bg-blue-800">
     <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a routerLink="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./images/freshcart-logo.svg" alt="">
@@ -33,17 +33,16 @@
                 </li>
                 <li class="p-2">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
-                        aria-current="page" routerLink="/categories"  routerLinkActive="scale-120">Categories</a>
+                        aria-current="page" routerLink="/categories" routerLinkActive="scale-120">Categories</a>
                 </li>
                 <li class="p-2 relative">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
                         aria-current="page" routerLinkActive="scale-120" routerLink="/cart">Cart</a>
                     <!--  -->
                 </li>
-                <li class="p-2 relative">
+                <li class="p-2">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
                         aria-current="page" routerLinkActive="scale-120" routerLink="/wishlist">Wishlist</a>
-                    <!--  -->
                 </li>
                 <li class="p-2">
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0"
@@ -73,6 +72,8 @@
                     <a class="block py-2 text-emerald-800 hover:text-emerald-500 duration-500 px-3 md:p-0 cursor-pointer"
                         aria-current="page" (click)="signOut()">Sign out</a>
                 </li>}
+
+
             </ul>
 
             <ul
@@ -106,9 +107,7 @@
                 <li class="p-2">
                     <a class="text-emerald-800 hover:text-emerald-500 duration-500"><i class="fab fa-linkedin"></i></a>
                 </li>
-
             </ul>
         </div>
-
     </div>
 </nav>
