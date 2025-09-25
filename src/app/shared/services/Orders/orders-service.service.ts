@@ -11,7 +11,7 @@ export class OrdersServiceService {
 
   CheckoutSession(c_id: string, formData: object): Observable<any> {
     return this._HttpClient.post(
-      `${environment.baseUrl}/api/v1/orders/checkout-session/${c_id}/${environment.domain}`,
+      `${environment.baseUrl}/api/v1/orders/checkout-session/${c_id}${environment.domain}`,
       { shippingAddress: formData }
     );
   }
