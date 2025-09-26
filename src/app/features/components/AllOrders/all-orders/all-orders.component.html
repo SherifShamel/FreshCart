@@ -18,7 +18,7 @@
                 <time datetime="2022-10-10" class="block text-xs text-gray-500"> {{order.createdAt | date :'short'}}
                 </time>
 
-                <a href="#">
+                <a class="cursor-pointer" [routerLink]="['/p_details',cartItem._id]">
                     <h3 class="mt-0.5 text-lg text-gray-900">Title: {{cartItem.product.title}}</h3>
                 </a>
 
