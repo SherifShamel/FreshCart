@@ -28,6 +28,7 @@ export class ProductsComponent {
         pageNumber = res.metadata.currentPage;
         this.numberOfPages = res.metadata.numberOfPages;
         this.products = res.data;
+        console.log(res.data);
       },
       error: (err) => {
         console.log(err);

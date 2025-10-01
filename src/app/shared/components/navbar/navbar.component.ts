@@ -1,10 +1,4 @@
-import {
-  Component,
-  inject,
-  input,
-  InputSignal,
-  WritableSignal,
-} from '@angular/core';
+import { Component, HostListener, inject, input, InputSignal, WritableSignal } from '@angular/core';
 import { initFlowbite } from 'flowbite';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthServiceService } from '../../services/Auth/auth-service.service';
@@ -28,6 +22,8 @@ export class NavbarComponent {
   private readonly _AuthServiceService = inject(AuthServiceService);
   private readonly _CartServiceService = inject(CartServiceService);
 
+  userScroll: boolean = false;
+
   check: InputSignal<boolean> = input(false);
 
   userame: InputSignal<string> = input('');
@@ -45,5 +41,10 @@ export class NavbarComponent {
     this._FlowbiteService.loadFlowbite((flowbite) => {
       initFlowbite();
     });
+  }
+
+  @HostListener('window:scroll')
+  scrolled() {
+    this.userScroll = window.scrollY > 5;
   }
 }

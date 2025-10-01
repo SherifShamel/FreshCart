@@ -1,0 +1,16 @@
+<div class="main-section">
+    <div class=" bg-gray-200 p-2">
+        <div class="my-container">
+            @if(categoryName){
+            <h1 class="text-center text-4xl text-emerald-400">{{categoryName}}</h1>
+            }@else {
+            <h1 class="text-center text-4xl text-emerald-400">No Data For The Selected Category..</h1>
+            }
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mt-3">
+                @for (product of products; track product._id) {
+                <app-card [product]="product" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

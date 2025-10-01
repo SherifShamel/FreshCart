@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../../../shared/services/Categories/categories.service';
 import { ICategories } from '../../../core/interfaces/icategories.interface';
 import { FormsModule } from '@angular/forms';
+import { ProductsService } from '../../../shared/services/Products/products.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })

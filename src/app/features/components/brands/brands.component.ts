@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandsServiceService } from '../../../shared/services/Brands/brands-service.service';
 import { IBrandsInterface } from '../../../core/interfaces/ibrands-interface.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-brands',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.css',
 })

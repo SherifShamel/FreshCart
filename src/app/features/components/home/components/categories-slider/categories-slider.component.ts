@@ -39,7 +39,7 @@ export class CategoriesSliderComponent {
     navSpeed: 700,
     autoplaySpeed: 500,
     lazyLoad: true,
-    navText: ['Prev', 'Next'],
+    // navText: ['Prev', 'Next'],
     responsive: {
       0: {
         items: 1,
@@ -54,6 +54,6 @@ export class CategoriesSliderComponent {
         items: 6,
       },
     },
-    nav: true,
+    // nav: true,
   };
 }

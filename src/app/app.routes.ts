@@ -13,6 +13,8 @@ import { authGuardGuard } from './core/guards/auth-guard-guard';
 import { AllOrdersComponent } from './features/components/AllOrders/all-orders/all-orders.component';
 import { WishlistComponent } from './features/components/wishlist/wishlist.component';
 import { ForgetPasswordComponent } from './features/components/forgetPassword/forget-password/forget-password.component';
+import { CategoryProductsComponent } from './features/components/categories/Components/category-products/category-products.component';
+import { BrandProductsComponent } from './shared/services/Brands/Components/brand-products/brand-products.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -32,6 +34,7 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent, title: 'Home' },
       { path: 'brands', component: BrandsComponent, title: 'Brands' },
+      { path: 'brands/:b_id', component: BrandProductsComponent, title: 'Brands' },
       {
         path: 'checkout/:c_id',
         loadComponent: () =>
@@ -43,6 +46,7 @@ export const routes: Routes = [
       },
       { path: 'allorders', component: AllOrdersComponent, title: 'All Orders' },
       { path: 'categories', component: CategoriesComponent, title: 'Categories' },
+      { path: 'categories/:c_id', component: CategoryProductsComponent, title: 'Categories' },
       { path: 'cart', component: CartComponent, title: 'Cart' },
       { path: 'products', component: ProductsComponent, title: 'Products' },
       { path: 'wishlist', component: WishlistComponent, title: 'Wishlist' },
