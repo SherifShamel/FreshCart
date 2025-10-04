@@ -15,8 +15,8 @@
                 <!-- product image -->
                 <div class="w-full md:w-1/6 my-2">
                     <img [src]="item.product.imageCover" class="w-full block peer" [alt]="item.product.title">
-                    <img [src]="item.product.imageCover" class="fixed w-1/3 hidden peer-hover:block top-0 end-60"
-                        [alt]="item.product.title">
+                    <img [src]="item.product.imageCover"
+                        class="fixed w-1/3 hidden rounded-2xl peer-hover:block top-0 end-60" [alt]="item.product.title">
                 </div>
                 <!-- product details -->
                 <div class="w-full md:w-2/3 my-2">
@@ -34,6 +34,9 @@
                         @if(item.count>1){
                         <i class="fa fa-minus-circle cursor-pointer text-[var(--main-color)]"
                             (click)="changeCount(item.product._id,item.count-1)"></i>
+                        }
+                        @if(item.count ==1){
+                        <i class="fa fa-trash text-red-500 cursor-pointer" (click)="removeItem(item.product._id)"></i>
                         }
                         <p>{{item.count}}</p>
                         <i class="fa fa-plus-circle cursor-pointer text-[var(--main-color)]"
