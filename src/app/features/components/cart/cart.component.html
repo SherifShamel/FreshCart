@@ -5,19 +5,20 @@
 
         <div class="flex flex-col flex-wrap justify-center items-center min-h-60">
             @if( cartItems.products.length == 0){
-
             <h2 class="text-2xl text-center cursor-pointer hover:text-emerald-400 duration-75 underline"
                 [routerLink]="['/products']">
                 Start
                 Shopping!</h2>
             }
             @for (item of cartItems.products; track item.product._id) {
-            <div class="flex flex-wrap justify-between items-center shadow-lg">
+            <div class="flex flex-wrap justify-between items-center shadow-lg w-5xl">
+                <!-- product image -->
                 <div class="w-full md:w-1/6 my-2">
                     <img [src]="item.product.imageCover" class="w-full block" [alt]="item.product.title">
                 </div>
-                <div class="w-full md:w-2/4 my-2">
-                    <h3>Title: {{item.product.title}}</h3>
+                <!-- product details -->
+                <div class="w-full md:w-2/3 my-2">
+                    <h3 class="line-clamp-1">Title: {{item.product.title}}</h3>
                     <h4>Price:{{item.price}}</h4>
                     <h5 class="cursor-pointer text-red-500 mt-3 p-0 hover:p-2 w-fit"
                         (click)="removeItem(item.product._id)">
@@ -25,6 +26,7 @@
                     <h6 class="cursor-pointer mt-3 p-3 bg-emerald-300 w-max rounded-2xl hover:scale-110"
                         [routerLink]="['/p_details', item.product._id]">&lt; Check Product</h6>
                 </div>
+                <!-- product items count -->
                 <div class="w-full md:w-1/12 my-2">
                     <div class="flex flex-wrap justify-evenly lg:justify-between items-center">
                         @if(item.count>1){
