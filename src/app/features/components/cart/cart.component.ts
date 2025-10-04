@@ -3,10 +3,11 @@ import { CartServiceService } from '../../../shared/services/Cart/cart-service.s
 import { ICartInterface } from '../../../core/interfaces/icart-interface.interface';
 import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from '@angular/router';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
-  imports: [RouterLink],
+  imports: [RouterLink, CurrencyPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })

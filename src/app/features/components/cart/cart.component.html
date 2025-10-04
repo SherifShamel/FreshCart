@@ -14,12 +14,14 @@
             <div class="flex flex-wrap justify-between items-center shadow-lg lg:w-5xl">
                 <!-- product image -->
                 <div class="w-full md:w-1/6 my-2">
-                    <img [src]="item.product.imageCover" class="w-full block" [alt]="item.product.title">
+                    <img [src]="item.product.imageCover" class="w-full block peer" [alt]="item.product.title">
+                    <img [src]="item.product.imageCover" class="fixed w-1/3 hidden peer-hover:block top-0 end-60"
+                        [alt]="item.product.title">
                 </div>
                 <!-- product details -->
                 <div class="w-full md:w-2/3 my-2">
-                    <h3 class="line-clamp-1">Title: {{item.product.title}}</h3>
-                    <h4>Price:{{item.price}}</h4>
+                    <h3 class="line-clamp-1">{{item.product.title}}</h3>
+                    <h4>{{item.price | currency:"EGP "}}</h4>
                     <h5 class="cursor-pointer text-red-500 mt-3 p-0 hover:p-2 w-fit"
                         (click)="removeItem(item.product._id)">
                         Remove From Cart <i class="fa fa-trash-can"></i></h5>
