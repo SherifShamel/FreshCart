@@ -11,7 +11,7 @@
                 Shopping!</h2>
             }
             @for (item of cartItems.products; track item.product._id) {
-            <div class="flex flex-wrap justify-between items-center shadow-lg w-5xl">
+            <div class="flex flex-wrap justify-between items-center shadow-lg lg:w-5xl">
                 <!-- product image -->
                 <div class="w-full md:w-1/6 my-2">
                     <img [src]="item.product.imageCover" class="w-full block" [alt]="item.product.title">
@@ -27,7 +27,7 @@
                         [routerLink]="['/p_details', item.product._id]">&lt; Check Product</h6>
                 </div>
                 <!-- product items count -->
-                <div class="w-full md:w-1/12 my-2">
+                <div class="w-full md:w-1/12 my-2 md:me-2">
                     <div class="flex flex-wrap justify-evenly lg:justify-between items-center">
                         @if(item.count>1){
                         <i class="fa fa-minus-circle cursor-pointer text-[var(--main-color)]"
