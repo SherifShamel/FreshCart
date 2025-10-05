@@ -1,11 +1,11 @@
-import { Component, inject, input, Input, InputSignal, signal } from '@angular/core';
-import { IProduct } from '../../../../core/interfaces/iproduct.interface';
-import { RouterLink } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
-import { CartServiceService } from '../../../services/Cart/cart-service.service';
-import { ToastrService } from 'ngx-toastr';
-import { WishlistService } from '../../../services/Wishlist/wishlist.service';
+import { Component, inject, input, InputSignal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import 'animate.css';
+import { ToastrService } from 'ngx-toastr';
+import { IProduct } from '../../../../core/interfaces/iproduct.interface';
+import { CartServiceService } from '../../../services/Cart/cart-service.service';
+import { WishlistService } from '../../../services/Wishlist/wishlist.service';
 
 @Component({
   selector: 'app-card',
